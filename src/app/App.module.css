@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  padding: 0 var(--padding-mobile);
+  padding-bottom: 20px;
+  max-width: var(--container-width);
+}
+.pageHeader {
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
