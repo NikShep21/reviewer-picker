@@ -16,7 +16,7 @@ export const buildAnimationFrames = ({
   const totalFrames = Math.max(Math.floor(durationMs / intervalMs), 1);
   const frames: GithubContributor[] = [];
 
-  for (let index = 0; index < Math.max(totalFrames - 1, 0); index += 1) {
+  for (let index = 0; index < totalFrames - 1; index += 1) {
     frames.push(candidates[index % candidates.length]);
   }
 

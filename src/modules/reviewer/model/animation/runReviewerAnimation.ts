@@ -12,7 +12,7 @@ interface RunReviewerAnimationParams {
   setIsAnimating: Dispatch<SetStateAction<boolean>>;
 }
 
-const delay = (ms: number) =>
+const delay = async (ms: number) =>
   new Promise<void>((resolve) => {
     window.setTimeout(resolve, ms);
   });
@@ -44,6 +44,5 @@ export const runReviewerAnimation = async ({
     await delay(intervalMs);
   }
 
-  setDisplayedReviewer(finalReviewer);
   setIsAnimating(false);
 };

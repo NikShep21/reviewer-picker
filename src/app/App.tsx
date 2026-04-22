@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import styles from "./App.module.css";
 
@@ -10,8 +10,19 @@ import {
 } from "@/modules/settings";
 import { ReviewerWorkspace } from "@/modules/reviewer";
 
+const defaultSettings: SettingsValues = {
+  login: "",
+  repository: "",
+  blacklist: [],
+};
+
 export const App = () => {
-  const [settings, setSettings] = useState<SettingsValues>(() => getSettings());
+  const [settings, setSettings] = useState<SettingsValues>(defaultSettings);
+
+  useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSettings(getSettings());
+  }, []);
 
   const handleSaveSettings = (nextSettings: SettingsValues) => {
     setSettings(nextSettings);

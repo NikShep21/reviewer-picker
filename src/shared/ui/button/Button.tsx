@@ -20,9 +20,9 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
+      {...props}
       className={clsx(styles.button, styles[variant], className)}
       disabled={disabled || isLoading}
-      {...props}
     >
       <span className={styles.content}>
         {isLoading && (

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Button } from "@/shared/ui/button";
 import type { GithubContributor } from "../../model/types";
 
@@ -40,7 +41,7 @@ export const ReviewerSearchPanel = ({
         ) : displayedReviewer ? (
           <div className={styles.reviewerPreview}>
             <img
-              className={`${styles.avatar} ${showGithubLink ? styles.avatarFinal : ""}`}
+              className={clsx(styles.avatar, showGithubLink && styles.avatarFinal)}
               src={displayedReviewer.avatar_url}
               alt={displayedReviewer.login}
             />
@@ -48,7 +49,7 @@ export const ReviewerSearchPanel = ({
             <p className={styles.login}>@{displayedReviewer.login}</p>
 
             <a
-              className={`${styles.link} ${!showGithubLink ? styles.hidden : ""}`}
+              className={clsx(styles.link, !showGithubLink && styles.hidden)}
               href={displayedReviewer.html_url}
               target="_blank"
               rel="noreferrer"
